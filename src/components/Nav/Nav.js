@@ -1,56 +1,39 @@
 import React, { Component } from 'react'
 import styles from './Nav.css'
+import routes from '../../routes'
+import { Link, HashRouter, Switch } from 'react-router-dom';
+import SignUp from '../Signup/Signup';
 class Nav extends Component {
     constructor() {
         super();
-
         this.state = {
-            showMenu: false,
+          showMenu: false
         };
-
-        this.showMenu = this.showMenu.bind(this);
-        this.closeMenu = this.closeMenu.bind(this);
-    }
-
-    showMenu(event) {
-        event.preventDefault();
-
-        this.setState({ showMenu: true }, () => {
-            document.addEventListener('click', this.closeMenu);
-        });
-    }
-
-    closeMenu(event) {
-
-        if (!this.dropdownMenu.contains(event.target)) {
-
-            this.setState({ showMenu: false }, () => {
-                document.removeEventListener('click', this.closeMenu);
-            });
-
-        }
-    }
+      }
+    
+      toggleMenu = () => {
+          this.setState({showMenu: !this.state.showMenu})
+      }
+    
 
     render() {
         return (
+
             <div>
                 <div className='header'>
                     <div className='logo'>Logo</div>
-                <button className='menu-btn-content' onClick={this.showMenu}>
+                <button className='menu-btn-content' onClick={this.toggleMenu}>
                     Menu <i class="fa fa-bars"></i>
                 </button>     
                 </div>
                 {
                     this.state.showMenu
-                        ? (
-                            <div
-                                className="nav-menu"
-                                ref={(element) => {
-                                    this.dropdownMenu = element;
-                                }}
-                            >
-                                <button className='nav-link'> Menu item 1 </button>
-                                <button className='nav-link'> Menu item 2 </button>
+                    ? (
+                        <div
+                        className="nav-menu"
+                        >
+                               <Link to='/signup'><button className='nav-link'>Sign up </button></Link>
+                                <Link to='/login'><button className='nav-link'> Login </button></Link>
                                 <button className='nav-link'> Menu item 3 </button>
                                 <button className='nav-link'> Menu item 4 </button>
                                 <button className='nav-link'> Menu item 5 </button>
@@ -58,9 +41,9 @@ class Nav extends Component {
                         )
                         : (
                             null
-                        )
-                }
-            </div>
+                            )
+                        }
+                    </div>
         );
     }
 }

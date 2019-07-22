@@ -1,0 +1,55 @@
+.login-up-page {
+    margin: 0;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+.login-up-container {
+    width: 30vw;
+    height: 25vh;
+    background-color: rgba(43, 39, 39, 0.774);
+    border-radius: 3px;
+    border-style: line;
+    border-width: 2px;
+    text-align: center;
+    color: white;
+}
+
+.login-up-logo {
+    height: 20px;
+    font-size: 20pt;
+    width: 30vw;
+    text-align: center;
+}
+
+.login-up-inside {
+    background-color: rgba(2, 3, 14, 0.568);
+    border-radius: 3px;
+    border-style: line;
+    border-width: 0px;
+    margin: 20px;
+    height: 16vh;
+    display: flex;
+
+}
+
+.inputs-user {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: baseline;
+    align-content: stretch;
+    margin: 15px;
+    width: 30vw;
+}
+
+.input-user-sub {
+    width: 25vw;
+}
