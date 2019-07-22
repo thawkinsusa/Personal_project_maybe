@@ -1,0 +1,1 @@
+DELETE FROM Team WHERE Team_id = $1;

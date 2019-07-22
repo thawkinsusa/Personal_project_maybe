@@ -1,8 +1,9 @@
     
 import React, { Component } from 'react';
 import './App.css';
-import Routes from "./routes"
+import routes from "./routes"
 import Home from './components/Home/Home';
+import Nav from './components/Nav/Nav';
 // testing git
 class App extends Component {
   constructor(){
@@ -15,8 +16,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Home/>
+        <div className='background-img'>
+       <Nav/>
+       {routes}
+       </div>
       </div>
+      
     );
   }
 }
