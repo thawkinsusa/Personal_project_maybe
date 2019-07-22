@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-
-
+import styles from './Nav.css'
 class Nav extends Component {
     constructor() {
         super();
@@ -35,22 +34,26 @@ class Nav extends Component {
     render() {
         return (
             <div>
+                <div className='header'>
+                    <div className='logo'>Logo</div>
                 <button className='menu-btn-content' onClick={this.showMenu}>
-                    Menu<i className="fas fa-bars" />
-                </button>
-
+                    Menu <i class="fa fa-bars"></i>
+                </button>     
+                </div>
                 {
                     this.state.showMenu
                         ? (
                             <div
-                                className="menu"
+                                className="nav-menu"
                                 ref={(element) => {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button > Menu item 1 </button>
-                                <button > Menu item 2 </button>
-                                <button > Menu item 3 </button>
+                                <button className='nav-link'> Menu item 1 </button>
+                                <button className='nav-link'> Menu item 2 </button>
+                                <button className='nav-link'> Menu item 3 </button>
+                                <button className='nav-link'> Menu item 4 </button>
+                                <button className='nav-link'> Menu item 5 </button>
                             </div>
                         )
                         : (
