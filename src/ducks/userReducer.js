@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SIGNUP, LOGIN } from './actionTypes';
+import { SIGNUP, LOGIN, GET_USER, LOGOUT } from './actionTypes';
 
 const initialState = {
   user: {},
@@ -7,9 +7,16 @@ const initialState = {
   redirect: false
 };
 
-export const signup = (username, password, email, image, backImage) => {
+export const logout = () => {
+  return {
+    type: LOGOUT,
+    payload: axios.delete('/api/logout')
+  };
+};
+
+export const signup = (username, password, email, image, back_img) => {
   let data = axios
-    .post('/api/signup', { username, password, email, image, backImage })
+    .post('/api/signup', { username, password, email, image, back_img })
     .then(res => res.data);
   return {
     type: SIGNUP,
@@ -27,11 +34,20 @@ export const login = (username, password) => {
   };
 };
 
-export default function(state = initialState, action) {
+export const getUser = () => {
+  let data = axios.get('/api/user').then(res => res.data);
+  return {
+    type: GET_USER,
+    payload: data
+  };
+};
+
+export default function (state = initialState, action) {
   console.log('action in userReducer ', action);
   let { type, payload } = action;
   switch (type) {
     case SIGNUP + '_FULFILLED':
+      console.log('paylod', payload)
       return { user: payload, redirect: false, error: false };
     case SIGNUP + '_REJECTED':
       return { ...state, error: payload };
@@ -41,9 +57,17 @@ export default function(state = initialState, action) {
         error: false,
         redirect: false
       };
+      case LOGOUT + '_FULFILLED':
+      return {...state, user:{}}
     case LOGIN + '_REJECTED':
       return { ...state, error: payload };
-    default:
-      return state;
+      case GET_USER + '_PENDING':
+        return { ...state, redirect: false, error: false };
+      case GET_USER + '_FULFILLED':
+        return { ...state, user: payload, error: false };
+      case GET_USER + '_REJECTED':
+        return { ...state, redirect: true, error: payload };
+      default:
+        return state;
   }
 }

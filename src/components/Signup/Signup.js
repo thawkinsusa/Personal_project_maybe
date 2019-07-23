@@ -11,7 +11,7 @@ import styles from './Signup.css'
             password: ' ',
             email: ' ',
             image: ' ',
-            backImage: ' ',
+            back_img: ' ',
         }
 
     } handleChange = e => {
@@ -20,14 +20,16 @@ import styles from './Signup.css'
     };
 
     signupUser = () => {
-        let { username, password, email, image, backImage} = this.state;
-        this.props.signup(username, password, email, image, backImage);
+        let { username, password, email, image, back_img} = this.state;
+        console.log('username in signup', username);
+        this.props.signup(username, password, email, image, back_img);
     };
 
     render() {
-        let { username, password, email, image, backImage } = this.state
+        let { username, password, email, image, back_img } = this.state
         let {user} = this.props
-        if (user.loggedIn) return <Redirect to="/" />;
+        console.log('this.props', this.props);
+        if (user.loggedIn) return <Redirect to="/dashboard" />;
         return (
             <div className='sign-up-page'>
             <div className='sign-up-container'>
@@ -58,8 +60,8 @@ import styles from './Signup.css'
                             onChange={this.handleChange}></input>
                         Background Image:
                 <input className='input-user-sub' type="text"
-                            value={backImage}
-                            name="backImage"
+                            value={back_img}
+                            name="back_img"
                             onChange={this.handleChange}></input>
                     </div>
                 </div>
