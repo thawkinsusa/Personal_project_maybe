@@ -34,7 +34,7 @@ class Nav extends Component {
                         >
                                <Link to='/signup'><button className='nav-link'>Sign up </button></Link>
                                 <Link to='/login'><button className='nav-link'> Login </button></Link>
-                                <button className='nav-link'> Menu item 3 </button>
+                                <Link to='/dashboard'><button className='nav-link'> Dashboard </button></Link>
                                 <button className='nav-link'> Menu item 4 </button>
                                 <button className='nav-link'> Menu item 5 </button>
                             </div>
