@@ -4,14 +4,20 @@ import { connect } from 'react-redux';
 import { getUser } from '../../ducks/userReducer';
 import './Dashboard.css'
 class Dashboard extends Component {
+    constructor(){
+        super()
+        this.state= {
+            
+        }
+    }
     componentDidMount() {
         if (!this.props.user.loggedIn) {
-          this.props.getUser();
+            this.props.getUser();
         }
     }
     render() {
-        let { user, error, redirect } = this.props;
-        console.log('users in dashboard', user)
+        let { user, error, redirect, users } = this.props;
+        console.log('users in dashboard', users)
         if (error || redirect) return <Redirect to="/login" />;
         if (!user.loggedIn) return <div>Loading</div>;
         return (
@@ -19,8 +25,8 @@ class Dashboard extends Component {
                 <div className='dashboard-container'>
                     <div className='dashboard-user-contents-container'>
                         <div className='dashboard-img-container'>
-                            <div className='dashboard-img'>
-                            </div>
+                            <img src={user.image} className='dashboard-img'>
+                            </img>
                             <div className='dashboard-user-info-bottom-container'>
                                 <div className='dashboard-icons'>
                                 </div>
@@ -37,16 +43,18 @@ class Dashboard extends Component {
 
                             <div className='dashboard-db-info'>username: {user.username}</div>
                             <div className='dashboard-db-info'>Email: {user.email}</div>
-                            <div className='dashboard-db-info'>Memeber since: {user.username}</div>
+                            <div className='dashboard-db-info'>Memeber since: {user.date}</div>
                         </div>
                     </div>
-                    <div className='dashboard-menu-options'> options
+                    <div className='dashboard-menu-options'>
                     <button className='dashboard-links'> My Teams</button>
-                    <button className='dashboard-links'> My Messages </button>
-                    <button className='dashboard-links'> Team Management </button>
-                    <button className='dashboard-links'> Team Search </button>
-                    <button className='dashboard-links'> Home </button>
-                    <button></button>
+                        <button className='dashboard-links'> My Messages </button>
+                        <button className='dashboard-links'> Team Management </button>
+                        <button className='dashboard-links'> Team Search </button>
+                        <button className='dashboard-links'> Home </button>
+                        <button className='dashboard-links'> Home </button>
+                        <button className='dashboard-links'> Home </button>
+                        <button className='dashboard-links'> Home </button>
                     </div>
                 </div>
             </div>
@@ -55,9 +63,9 @@ class Dashboard extends Component {
 }
 function mapStateToProps(state) {
     return state.user;
-  }
+}
 
 export default connect(
     mapStateToProps,
     { getUser }
-  )(Dashboard);
+)(Dashboard);

@@ -42,10 +42,13 @@ background-color:rgb(44, 43, 43);
 
 }
 .nav-link{
-    height: 40px;
-    width: 139px;
+    height: 80px;
+    width: 150px;
     border-radius: 4px;
     background-color:rgba(36, 33, 33, 0.712);
     color: white;
     border-style: none;
 }
+.nav-link:hover {
+    background-color:rgb(44, 43, 43);
+    }

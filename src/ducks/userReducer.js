@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SIGNUP, LOGIN, GET_USER, LOGOUT } from './actionTypes';
+import { SIGNUP, LOGIN, GET_USER, LOGOUT, GET_USERS } from './actionTypes';
 
 const initialState = {
   user: {},
@@ -14,9 +14,9 @@ export const logout = () => {
   };
 };
 
-export const signup = (username, password, email, image, back_img) => {
+export const signup = (username, password, email, image, date ) => {
   let data = axios
-    .post('/api/signup', { username, password, email, image, back_img })
+    .post('/api/signup', { username, password, email, image, date  })
     .then(res => res.data);
   return {
     type: SIGNUP,
@@ -42,6 +42,14 @@ export const getUser = () => {
   };
 };
 
+// export const getUsers = () => {
+//   let data = axios.get('/api/users').then(res => res.data);
+//   return {
+//     type: GET_USERS,
+//     payload: data
+//   };
+// };
+
 export default function (state = initialState, action) {
   console.log('action in userReducer ', action);
   let { type, payload } = action;
@@ -57,17 +65,23 @@ export default function (state = initialState, action) {
         error: false,
         redirect: false
       };
-      case LOGOUT + '_FULFILLED':
-      return {...state, user:{}}
+    case LOGOUT + '_FULFILLED':
+      return { ...state, user: {} }
     case LOGIN + '_REJECTED':
       return { ...state, error: payload };
-      case GET_USER + '_PENDING':
-        return { ...state, redirect: false, error: false };
-      case GET_USER + '_FULFILLED':
-        return { ...state, user: payload, error: false };
-      case GET_USER + '_REJECTED':
-        return { ...state, redirect: true, error: payload };
-      default:
-        return state;
+    case GET_USER + '_PENDING':
+      return { ...state, redirect: false, error: false };
+    case GET_USER + '_FULFILLED':
+      return { ...state, user: payload, error: false };
+    case GET_USER + '_REJECTED':
+      return { ...state, redirect: true, error: payload };
+    // case GET_USERS + '_PENDING':
+    //   return { ...state, redirect: false, error: false };
+    // case GET_USERS + '_FULFILLED':
+    //   return { ...state, users: payload, error: false };
+    // case GET_USERS + '_REJECTED':
+    //   return { ...state, redirect: true, error: payload };
+    default:
+      return state;
   }
 }

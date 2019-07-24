@@ -5,11 +5,16 @@ import App from './App'
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import Dashboard from './components/Dashboard/Dashboard';
+import TeamPage from './components/Team/TeamPage';
+import TeamManagement from './components/Team/TeamManagement';
 export default (
   <Switch>
     <Route exact path='/' component={Home}/>
     <Route path='/dashboard' component={Dashboard}/>
     <Route path="/signup" component={Signup} />
     <Route path='/login' component={Login}/>
+    <Route path='/TeamPage' component={TeamPage}/>
+    <Route path='/TeamManagement' component={TeamManagement}/>
+
   </Switch>
 );
