@@ -1,2 +1,2 @@
-insert into Team(name, image, backImage, members)
+insert into Team(name, image, members)
 values($1, $2, $3, $4)

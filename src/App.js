@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import routes from "./routes"
-import Home from './components/Home/Home';
 import Nav from './components/Nav/Nav';
 // testing git
 class App extends Component {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../ducks/userReducer';
 import { Redirect } from 'react-router-dom';
-import styles from './Login.css'
+import './Login.css'
 class Login extends Component {
     constructor() {
         super();
@@ -18,14 +18,14 @@ class Login extends Component {
     };
 
     loginUser = () => {
-        let { username, password } = this.state;
-        this.props.login(username, password);
-    };
+        this.props.login(this.state.username, this.state.password);
+      };
 
     render() {
         let { username, password } = this.state;
         let { user } = this.props;
-        if (user.loggedIn) return <Redirect to="/" />;
+        console.log('this is logout', this.props)
+        if (user.loggedIn) return <Redirect to="/dashboard" />;
         return (
             <div className='login-up-page'>
                 <div className='login-up-container'>
