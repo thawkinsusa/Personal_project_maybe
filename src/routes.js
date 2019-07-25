@@ -7,6 +7,8 @@ import Login from './components/Login/Login'
 import Dashboard from './components/Dashboard/Dashboard';
 import TeamPage from './components/Team/TeamPage';
 import TeamManagement from './components/Team/TeamManagement';
+import TeamSignup from './components/Signup/TeamSignup'
+
 export default (
   <Switch>
     <Route exact path='/' component={Home}/>
@@ -15,6 +17,7 @@ export default (
     <Route path='/login' component={Login}/>
     <Route path='/TeamPage' component={TeamPage}/>
     <Route path='/TeamManagement' component={TeamManagement}/>
+    <Route path='/TeamSignup' component={TeamSignup}/>
 
   </Switch>
 );

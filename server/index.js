@@ -3,6 +3,7 @@ const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
 const uc = require('./controllers/userController');
+const tc = require('./controllers/teamController');
 const initSession = require('./middleware/initSession');
 const authCheck = require('./middleware/authCheck');
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
@@ -21,14 +22,19 @@ app.use(
   })
 );
 massive(CONNECTION_STRING).then(db => {
-    console.log('db connection successful');
-    app.set('db', db);
-    
+  console.log('db connection successful');
+  app.set('db', db);
+
   app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
-  });
-  app.use(initSession);
-  
-  app.post('/api/signup', uc.signup);
-  app.post('/api/login', uc.login);
-  app.get('/api/user', authCheck, uc.getUser);
-  app.delete('/api/logout', uc.logout);
+});
+app.use(initSession);
+
+//users
+app.post('/api/signup', uc.signup);
+app.post('/api/login', uc.login);
+app.get('/api/user', authCheck, uc.getUser);
+app.delete('/api/logout', uc.logout);
+//team
+app.post('/api/teamSignup', tc.create);
+app.get('/api/teams', tc.getTeam);
+app.delete('/api/teamDelete', tc.delete);

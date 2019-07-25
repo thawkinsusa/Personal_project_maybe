@@ -1,13 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import promiseMiddleware from "redux-promise-middleware";
-import { create } from "domain";
+
 
 //import reducers next
-import getUsers from './userReducer'
+import userReducer from './userReducer'
+import  teamReducer  from './teamReducer';
 
 
 const rootReducer = combineReducers({
-  user: getUsers
+  user: userReducer,
+  team: teamReducer
 });
 
 export default createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(applyMiddleware(promiseMiddleware)));

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SIGNUP, LOGIN, GET_USER, LOGOUT, GET_USERS } from './actionTypes';
+import { SIGNUP, LOGIN, GET_USER, LOGOUT } from './actionTypes';
 
 const initialState = {
   user: {},
@@ -42,20 +42,14 @@ export const getUser = () => {
   };
 };
 
-// export const getUsers = () => {
-//   let data = axios.get('/api/users').then(res => res.data);
-//   return {
-//     type: GET_USERS,
-//     payload: data
-//   };
-// };
+
 
 export default function (state = initialState, action) {
   console.log('action in userReducer ', action);
   let { type, payload } = action;
   switch (type) {
     case SIGNUP + '_FULFILLED':
-      console.log('paylod', payload)
+      console.log('paylaod', payload)
       return { user: payload, redirect: false, error: false };
     case SIGNUP + '_REJECTED':
       return { ...state, error: payload };
@@ -75,12 +69,7 @@ export default function (state = initialState, action) {
       return { ...state, user: payload, error: false };
     case GET_USER + '_REJECTED':
       return { ...state, redirect: true, error: payload };
-    // case GET_USERS + '_PENDING':
-    //   return { ...state, redirect: false, error: false };
-    // case GET_USERS + '_FULFILLED':
-    //   return { ...state, users: payload, error: false };
-    // case GET_USERS + '_REJECTED':
-    //   return { ...state, redirect: true, error: payload };
+
     default:
       return state;
   }
