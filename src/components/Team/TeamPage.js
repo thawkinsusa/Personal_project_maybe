@@ -19,6 +19,7 @@ class TeamPage extends Component {
                 <div className='teampage-container'>
                     <div className='teampage-user-contents-container'>
                         <div className='teampage-img-container'>
+                        <img src={user.image} className='dashboard-img'/>
                             <div className='teampage-img'>
                             </div>
                             <div className='teampage-user-info-bottom-container'>

@@ -8,11 +8,11 @@ class Signup extends Component {
     constructor() {
         super()
         this.state = {
-            username: ' ',
-            password: ' ',
-            email: ' ',
-            image: ' ',
-            date: ' '
+            username: '',
+            password: '',
+            email: '',
+            image: '',
+            date: ''
         }
         console.log('date', this.state)
     }

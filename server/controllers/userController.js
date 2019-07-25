@@ -14,6 +14,7 @@ module.exports = {
         id: existingUser.id,
         email: existingUser.email,
         image: existingUser.image,
+        team: existingUser.team_id,
         loggedIn: true
       };
       res.send(req.session.user);
@@ -42,12 +43,3 @@ module.exports = {
     res.send(req.session.user);
   },
 }
-  // getAll: (req, res, next) => {
-  //   const dbInstance = req.app.get('db');
-  //   console.log('object');
-  //   dbInstance.read_users()
-  //     .then(users => res.status(200).send(users))
-  //     .catch(err => {
-  //       res.status(500).send({ errorMessage: "getAll is broken !@#$" });
-  //       console.log(err)
-  //     });
