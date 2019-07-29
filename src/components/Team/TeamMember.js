@@ -9,7 +9,7 @@ class TeamMember extends Component {
     }
 
     render() {
-        if (this.props.team.team[0]) {
+        if (this.props.team.teams[0]) {
             let { team } = this.props
             console.log('this is clg in teamMember', team)
             return (
@@ -17,9 +17,9 @@ class TeamMember extends Component {
                     <div className='team-member'>
                         <div className='team-member-container'>
                             <div className='team-member-photo-container'>
-                                <img src={team.team[0].image} className='team-member-photo-container' />
+                                <img src={team.teams[0].team_image} className='team-member-photo-container' />
                             </div>
-                        Name:{team.team[0].name}<button>Kick Member</button></div>
+                        Name:{team.teams[0].team_name}<button>Kick Member</button></div>
                         </div>
                     <div className='team-member'> this is where teammember should be</div>
                     <div className='team-member'> this is where teammember should be</div>

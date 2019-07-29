@@ -8,7 +8,7 @@ import TeamMember from './TeamMember'
 class TeamManagement extends Component {
     componentDidMount() {
 
-        this.props.getTeam();
+        this.props.getTeam(this.props.user.user.id);
 
     }
     render() {
@@ -23,7 +23,7 @@ class TeamManagement extends Component {
                     <div className='teampage-container'>
                         <div className='teampage-user-contents-container'>
                             <div className='teampage-img-container'>
-                                <img src={team.team[0].image} className='dashboard-img' />
+                                <img src={team.team[0].team_image} className='dashboard-img' />
 
                                 <div className='teampage-user-info-bottom-container'>
                                     <div className='teampage-icons'>
@@ -33,25 +33,20 @@ class TeamManagement extends Component {
                                 </div>
                             </div>
                             <div className='teampage-user-info-top-container'>
-                                <div className='teampage-db-info'>Memeber since: {team.team[0].date}</div>
-                                <div className='teampage-db-info'>team:{team.team[0].name}</div>
+                                <div className='teampage-db-info'>Memeber since: {team.team[0].team_creation_date}</div>
+                                <div className='teampage-db-info'>team:{team.team[0].team_name}</div>
                             </div>
                         </div>
                         <div className='teampage-main-team-container'> Your teamSearch
                     <div className='teampage-team-container'>
                                 <div className='teampage-team-info'>
-                                    {team.team[0].name}
+                                    {team.team[0].team_name}
                                 </div>
                                 <div className='teampage-team-members'>
                                     <div className='team-captain'>
                                         Captain: {team.team[0].username}
                                         <TeamMember/>
                                     </div>
-                                    <Link to='/TeamSignup'>
-                                        <div className='team-captain'>
-                                        </div>
-                                        <button>Create Team</button>
-                                    </Link>
 
                                 </div>
                             </div>
@@ -59,7 +54,16 @@ class TeamManagement extends Component {
                     </div>
                 </div>
             )
-        } else { return <div>loading...</div> }
+        }else {
+        return(<div>
+
+                                    <Link to='/TeamSignup'>
+                                        <div className='team-captain'>
+                                        </div>
+                                        <button>Create Team</button>
+                                    </Link>
+        </div>)
+    }
     }
 }
 function mapStateToProps(state) {

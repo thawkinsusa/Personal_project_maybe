@@ -7,10 +7,10 @@ const initialState = {
     redirect: false
 };
 
-export const teamSignup = (name, image, date) => {
+export const teamSignup = (team_name, team_image,team_creation_date, id) => {
     let data = axios
     
-        .post('/api/teamSignup', { name, image, date })
+        .post('/api/teamSignup', { team_name, team_image,team_creation_date, id })
         .then(console.log('teamsignup fired'));
     return {
         type: TEAMSIGNUP,
@@ -18,8 +18,8 @@ export const teamSignup = (name, image, date) => {
     };
 };
 
-export const getTeam = () => {
-    let data = axios.get('/api/teams').then(res => {
+export const getTeam = (id) => {
+    let data = axios.get(`/api/teams/${id}`).then(res => {
         console.log(res.data);
         return res.data
     });

@@ -7,9 +7,10 @@ class teamRegistration extends Component {
     constructor() {
         super()
         this.state = {
-            name: '',
-            image: '',
-            date: ''
+            team_name:'',
+            team_image:'',
+            team_creation_date: ''
+
         }
     }
     handleChange = e => {
@@ -21,7 +22,7 @@ class teamRegistration extends Component {
     time = () => {
         let d = new Date();
         let n = d.toLocaleDateString();
-        return this.setState({ date: n })
+        return this.setState({ team_creation_date: n })
     }
 
     pageRedirect = () => {
@@ -31,13 +32,14 @@ class teamRegistration extends Component {
 
     teamSignup = () => {
         console.log('props', this.props);
-        let { name, image, date } = this.state;
-        this.props.teamSignup(name, image,   date);
+        let { team_name, team_image, team_creation_date } = this.state;
+        let {id}=this.props.user.user
+        this.props.teamSignup(team_name, team_image, team_creation_date, id);
         
     };
 
     render() {
-        let { name, image,   date } = this.state
+        let { team_name, team_image, team_creation_date } = this.state
         let { team } = this.props
 
         console.log('this.props', this.props);
@@ -51,13 +53,13 @@ class teamRegistration extends Component {
                         <div className='inputs-user'>
                             Team Name:
                 <input className='input-user-sub' type="text"
-                                value={name}
-                                name="name"
+                                value={team_name}
+                                name="team_name"
                                 onChange={this.handleChange}></input>
                             Team Image:
                 <input className='input-user-sub' type="text"
-                                value={image}
-                                name="image"
+                                value={team_image}
+                                name="team_image"
                                 onChange={this.handleChange}></input>
 
                         </div>

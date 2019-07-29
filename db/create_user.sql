@@ -1,6 +1,6 @@
 INSERT INTO "users"
-    (username, password, email, image)
-VALUES($1, $2, $3, $4);
+    (user_name, user_password, user_email, user_image, user_join_date)
+VALUES($1, $2, $3, $4, $5);
 
 select * from users
-where username= $1;
+where user_name= $1;

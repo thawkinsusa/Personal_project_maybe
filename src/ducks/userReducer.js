@@ -14,9 +14,9 @@ export const logout = () => {
   };
 };
 
-export const signup = (username, password, email, image, date ) => {
+export const signup = (user_name, user_password, user_email, user_image, user_join_date ) => {
   let data = axios
-    .post('/api/signup', { username, password, email, image, date  })
+    .post('/api/signup', { user_name, user_password, user_email, user_image, user_join_date  })
     .then(res => res.data);
   return {
     type: SIGNUP,
@@ -24,9 +24,9 @@ export const signup = (username, password, email, image, date ) => {
   };
 };
 
-export const login = (username, password) => {
+export const login = (user_name, user_password) => {
   let data = axios
-    .post('/api/login', { username, password })
+    .post('/api/login', { user_name, user_password })
     .then(res => res.data);
   return {
     type: LOGIN,

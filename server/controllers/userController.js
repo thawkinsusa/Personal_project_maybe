@@ -3,35 +3,34 @@ const saltRounds = 10;
 
 module.exports = {
   login: async function (req, res) {
-    let { username, password } = req.body;
+    let { user_name, user_password, user_email, user_image, user_join_date } = req.body;
     const db = req.app.get('db');
-    let [existingUser] = await db.get_user_by_username(username);
+    let [existingUser] = await db.get_user_by_username(user_name);
     if (!existingUser) return res.status(401).send('Username not found');
-    let result = await bcrypt.compare(password, existingUser.password);
+    let result = await bcrypt.compare(user_password, existingUser.user_password);
     if (result) {
       req.session.user = {
-        username: existingUser.username,
+        user_name: existingUser.user_name,
         id: existingUser.id,
-        email: existingUser.email,
-        image: existingUser.image,
-        team: existingUser.team_id,
+        user_email: existingUser.user_email,
+        user_image: existingUser.user_image,
         loggedIn: true
       };
       res.send(req.session.user);
     } else res.status(401).send('Username or password incorrect');
   },
   async signup(req, res) {
-    let { username, password, email, image, date } = req.body;
-    console.log('body', username);
+    let { user_name, user_password, user_email, user_image, user_join_date } = req.body;
+    console.log('body', user_name);
     const db = req.app.get('db');
-    let [existingUser] = await db.get_user_by_username([username]);
+    let [existingUser] = await db.get_user_by_username([user_name]);
     if (existingUser) return res.status(400).send('Username already exists');
     let salt = await bcrypt.genSalt(saltRounds);
-    let hash = await bcrypt.hash(password, salt);
+    let hash = await bcrypt.hash(user_password, salt);
     console.log('hit user creation');
-    let [user] = await db.create_user([username, hash, email, image, date]);
+    let [user] = await db.create_user([user_name, hash, user_email, user_image, user_join_date]);
     console.log('hit user creation 2', user);
-    req.session.user = { username: user.username, email, image, date, id: user.id, loggedIn: true };
+    req.session.user = { user_name: user.user_name, user_email, user_image, user_join_date, id: user.id, loggedIn: true };
     console.log('hit user creation 3', req.session.user);
     res.send(req.session.user);
   },

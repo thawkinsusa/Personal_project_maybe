@@ -1,2 +1,2 @@
-select * from team 
-where name = $1
+select * from teams 
+where team_name = $1
