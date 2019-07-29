@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getUser } from '../../ducks/userReducer';
+import { getTeam } from '../../ducks/teamReducer';
 import './TeamPage.css'
 class TeamPage extends Component {
     componentDidMount() {
-        if (!this.props.user.loggedIn) {
-            this.props.getUser();
-        }
+        this.props.getTeam();
     }
     render() {
         console.log('props teampage', this.props)
-        let { user, error, redirect } = this.props;
+        let { user, error, redirect, team } = this.props;
         if (error || redirect) return <Redirect to="/login" />;
         if (!user.loggedIn) return <div>Loading</div>;
         return (
@@ -63,10 +61,10 @@ class TeamPage extends Component {
     }
 }
 function mapStateToProps(state) {
-    return state.user;
+    return { team: state.team, user: state.user };
 }
 
 export default connect(
     mapStateToProps,
-    { getUser }
+    { getTeam }
 )(TeamPage);
