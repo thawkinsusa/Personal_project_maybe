@@ -25,7 +25,7 @@ class Dashboard extends Component {
                 <div className='dashboard-container'>
                     <div className='dashboard-user-contents-container'>
                         <div className='dashboard-img-container'>
-                            <img src={user.image} className='dashboard-img'>
+                            <img src={user.user_image} className='dashboard-img'>
                             </img>
                             <div className='dashboard-user-info-bottom-container'>
                                 <div className='dashboard-icons'>
@@ -41,9 +41,9 @@ class Dashboard extends Component {
                         </div>
                         <div className='dashboard-user-info-top-container'>
 
-                            <div className='dashboard-db-info'>username: {user.username}</div>
-                            <div className='dashboard-db-info'>Email: {user.email}</div>
-                            <div className='dashboard-db-info'>Memeber since: {user.date}</div>
+                            <div className='dashboard-db-info'>username: {user.user_name}</div>
+                            <div className='dashboard-db-info'>Email: {user.user_email}</div>
+                            <div className='dashboard-db-info'>Memeber since: {user.user_date}</div>
                         </div>
                     </div>
                     <div className='dashboard-menu-options'>

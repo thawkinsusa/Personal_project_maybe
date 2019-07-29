@@ -1,26 +1,19 @@
 module.exports = {
-    create: (req, res, next) => {
+    create: async (req, res, next) => {
         const dbInstance = req.app.get('db');
-        const { name, image, date } = req.body
-        dbInstance.create_team([name, image, date])
-          .then((team) => {
-            console.log('hit second call', team[0], req.session.user)
+      console.log('req.body', req.body);
+        const { team_name, team_image, team_creation_date, id } = req.body
+        
+        const teamId = await dbInstance.create_team([team_name, team_image, team_creation_date])
+        console.log('team id', teamId);
 
-            dbInstance.team(team[0].id, req.session.user.id)
-            .then(()=> res.status(200).send(team))
-            .catch(err => {
-              res.status(500).send ({errorMessage: 'create team is broken'})
-            })
-          })
-          .catch(err => {
-            res.status(500).send({ errorMessage: "Create is broke $#@%" });
-            console.log(err)
-          });
+        dbInstance.join_team(teamId[0].id, id)
+          
       },
       getTeam: (req, res, next) => {
         const dbInstance = req.app.get('db');
         console.log('object');
-        dbInstance.read_user_by_team_id()
+        dbInstance.read_team_by_user_id(req.params.id)
           .then(team => {
             console.log(team);  
             res.status(200).send(team)})

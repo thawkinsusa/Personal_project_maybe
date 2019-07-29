@@ -1,7 +1,5 @@
-insert into team(name, image, date)
+insert into teams(team_name, team_image, team_creation_date)
 values($1, $2, $3)
 
-RETURNING *;
--- select * from team 
--- where name = $1
+returning *
 

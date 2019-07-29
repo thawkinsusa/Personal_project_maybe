@@ -1,1 +1,2 @@
-DELETE FROM Team WHERE Team_id = $1;
+delete from teams
+where teams.id = $1

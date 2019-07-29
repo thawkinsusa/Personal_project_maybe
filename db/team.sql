@@ -1,3 +1,3 @@
-UPDATE users
+UPDATE team_junction
 set team_id = $1
-where users.id = $2
+where user_id = $2

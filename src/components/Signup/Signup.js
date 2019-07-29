@@ -8,11 +8,11 @@ class Signup extends Component {
     constructor() {
         super()
         this.state = {
-            username: '',
-            password: '',
-            email: '',
-            image: '',
-            date: ''
+            user_name: '',
+            user_password: '',
+            user_email:'',
+            user_image:'',
+            user_join_date:''
         }
         console.log('date', this.state)
     }
@@ -33,12 +33,12 @@ class Signup extends Component {
 
     signupUser = () => {
         this.time()
-        let { username, password, email, image, date } = this.state;
-        this.props.signup(username, password, email, image, date);
+        let { user_name, user_password, user_email, user_image, user_join_date } = this.state;
+        this.props.signup(user_name, user_password, user_email, user_image, user_join_date);
     };
 
     render() {
-        let { username, password, email, image, date } = this.state
+        let { user_name, user_password, user_email, user_image, user_join_date } = this.state
         let { user } = this.props
         console.log('this.props', this.state.date);
         if (user.loggedIn) return <Redirect to="/dashboard" />;
@@ -52,23 +52,23 @@ class Signup extends Component {
                         <div className='inputs-user'>
                             Username:
                 <input className='input-user-sub' type="text"
-                                value={username}
-                                name="username"
+                                value={user_name}
+                                name="user_name"
                                 onChange={this.handleChange}></input>
                             Password:
                 <input className='input-user-sub' type="password"
-                                value={password}
-                                name="password"
+                                value={user_password}
+                                name="user_password"
                                 onChange={this.handleChange}></input>
                             Email:
                 <input className='input-user-sub' type="text"
-                                value={email}
-                                name="email"
+                                value={user_email}
+                                name="user_email"
                                 onChange={this.handleChange}></input>
                             User Image:
                 <input className='input-user-sub' type="text"
-                                value={image}
-                                name="image"
+                                value={user_image}
+                                name="user_image"
                                 onChange={this.handleChange}></input>
                         </div>
                     </div>
