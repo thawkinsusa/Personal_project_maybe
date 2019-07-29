@@ -23,7 +23,12 @@
     display: flex;
     flex-direction: row;
 }
-
+.team-captain{
+    color: red;
+    border-style: groove;
+    border-width: .5px;
+    
+}
 .teampage-menu-options {
     margin: 0px;
     width: 1400px;

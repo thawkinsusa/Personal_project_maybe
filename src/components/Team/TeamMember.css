@@ -1,0 +1,38 @@
+
+.team-member-list{
+    color: white;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    border-style: groove;
+    border-width: .5px;  
+ }
+.team-member {
+    width: 800px;
+    height: 70px;
+    border-style: groove;
+    border-width: .5px;
+
+}
+.team-member-container{
+    width: 800px;
+    display:flex;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: stretch;
+    height:50px;
+
+}
+
+.team-member-photo-container{
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    border-style: groove;
+    border-width: .5px;
+}

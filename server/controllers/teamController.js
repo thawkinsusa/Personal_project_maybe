@@ -20,7 +20,7 @@ module.exports = {
       getTeam: (req, res, next) => {
         const dbInstance = req.app.get('db');
         console.log('object');
-        dbInstance.read_team()
+        dbInstance.read_user_by_team_id()
           .then(team => {
             console.log(team);  
             res.status(200).send(team)})
