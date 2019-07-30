@@ -25,7 +25,7 @@ class Signup extends Component {
     time = () => {
         let d = new Date();
         let n = d.toLocaleDateString();
-        return this.setState({ date: n })
+        return this.setState({ user_join_date: n })
     }
 
 

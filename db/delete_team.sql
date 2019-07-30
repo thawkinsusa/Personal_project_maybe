@@ -1,2 +1,5 @@
-delete from teams
-where teams.id = $1
+delete from team
+where id = $1;
+
+select * from team 
+where user_id = $2;

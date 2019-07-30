@@ -1,0 +1,20 @@
+.user-team-add-main-container{
+    color:white;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+    border-style: solid;
+    border-width: 2px;
+    height: 900px;
+}
+.user-team-add-main{
+    border-style: solid;
+    height: 900px;
+    width: 900px;
+    border-width: 2px;
+}
+
+

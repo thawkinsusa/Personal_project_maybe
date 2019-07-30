@@ -1,11 +1,11 @@
-.teampage {
+.teamManagement {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
 }
 
-.teampage-container {
+.teamManagement-container {
     width: 1400px;
     height: 800px;
     background-color: rgba(19, 18, 18, 0.575);
@@ -15,7 +15,7 @@
     border-width: 1px;
 }
 
-.teampage-user-contents-container {
+.teamManagement-user-contents-container {
     margin: 0px;
     width: 480px;
     height: 800px;
@@ -29,14 +29,14 @@
     border-width: .5px;
     
 }
-.teampage-menu-options {
+.teamManagement-menu-options {
     margin: 0px;
     width: 1400px;
     height: 800px;
     background-color: rgba(20, 155, 38, 0);
 }
 
-.teampage-img {
+.teamManagement-img {
     margin: 0px 0px 0px 15px;
     width: 120px;
     height: 125px;
@@ -44,7 +44,7 @@
     border-radius: 120px;
 }
 
-.teampage-img-container {
+.teamManagement-img-container {
     margin: 20px 10px 20px 20px;
     padding-top: 20px;
     width: 150px;
@@ -55,7 +55,7 @@
     border-width: 1px;
 }
 
-.teampage-user-info-top-container {
+.teamManagement-user-info-top-container {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -71,11 +71,11 @@
     border-width: .5px;
 }
 
-.teampage-db-info {
+.teamManagement-db-info {
     margin: 10px;
 }
 
-.teampage-user-info-bottom-container {
+.teamManagement-user-info-bottom-container {
     position: absolute;
     top: 295px;
     width: 390px;
@@ -83,7 +83,7 @@
     background-color: rgba(255, 255, 0, 0);
 }
 
-.teampage-icons {
+.teamManagement-icons {
     background-image: url('https://i.gyazo.com/ac646f8558b808357d9c1b891949e898.png');
     height: 30px;
     width: 30px;
@@ -94,13 +94,13 @@
 
 }
 
-.teampage-user-bottom-info-after-icon-container {
+.teamManagement-user-bottom-info-after-icon-container {
     display: flex;
     flex-direction: column;
     align-content: space-between;
 }
 
-.teampage-links {
+.teamManagement-links {
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -108,47 +108,42 @@
     align-items: space-between;
 }
 
-.teampage-main-team-container {
+.teamManagement-main-team-container {
     margin: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: scroll;
+    justify-content: space-evenly;
     border-style: groove;
     border-width: .5px;
+    border-radius: 10px;
+    background-color:  rgb(27, 26, 26);
 
 }
 
-.teampage-team-container {
-    margin: 15px;
+.teamManagement-team-info {
+
     width: 800px;
-    height: 300px;
-    background-color: rgb(37, 35, 35);
     display: flex;
     flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
     align-items: center;
-    border-style: groove;
-    border-width: .5px;
-}
 
-.teampage-team-info {
-
-    width: 800px;
-    display: flex;
-    flex-direction: row;
-    align-items: space-between;
-    justify-content: center;
-    border-style: groove;
-    border-width: .5px;
 }
-.teampage-team-members{
-    margin: 10px;
+.team-photo-container{
+    width: 797px;
+    border-radius: 10px;
+    height: 200px;
 }
 
 .team-member-photo-container{
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
     border-radius: 20px;
     border-style: groove;
     border-width: .5px;
+}
+.teamManagement-team-members{
+    height:300px;
 }

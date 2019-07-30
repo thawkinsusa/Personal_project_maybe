@@ -43,7 +43,7 @@ class Dashboard extends Component {
 
                             <div className='dashboard-db-info'>username: {user.user_name}</div>
                             <div className='dashboard-db-info'>Email: {user.user_email}</div>
-                            <div className='dashboard-db-info'>Memeber since: {user.user_date}</div>
+                            <div className='dashboard-db-info'>Memeber since: {user.user_join_date}</div>
                         </div>
                     </div>
                     <div className='dashboard-menu-options'>

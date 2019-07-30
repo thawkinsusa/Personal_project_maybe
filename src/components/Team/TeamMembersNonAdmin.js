@@ -3,7 +3,7 @@ import { getTeam, getTeamMembers } from '../../ducks/teamReducer';
 import { connect } from 'react-redux';
 import './TeamMember.css'
 
-class TeamMember extends Component {
+class TeamMemberNonAdmin extends Component {
     componentDidMount() {
         this.props.getTeamMembers(this.props.user.user.id)
     }
@@ -20,28 +20,28 @@ class TeamMember extends Component {
 
                         <div className='team-member'>
                             <img src={team.teamMembers[0].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[0].user_name}<button>Kick Member</button>
+                            Name: {team.teamMembers[0].user_name}
                         </div>
                         {(team.teamMembers.length[1]) ? <div className='team-member'>
                             <img src={team.teamMembers[1].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[1].user_name}<button>Kick Member</button>
+                            Name: {team.teamMembers[1].user_name}
                         </div> : <div><div className='team-member'>
                             <img src={team.team[0].team_image} className='team-member-photo-container' />
-                            Name: {team.team[0].team_name}<button>Add Member</button></div></div>}
+                            Name: {team.team[0].team_name}</div></div>}
                      
                         {(team.teamMembers.length[2]) ? <div className='team-member'>
                             <img src={team.teamMembers[2].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[2].user_name}<button>Kick Member</button>
+                            Name: {team.teamMembers[2].user_name}
                         </div> : <div><div className='team-member'>
                             <img src={team.team[0].team_image} className='team-member-photo-container' />
-                            Name: {team.team[0].team_name}<button>Add Member</button></div></div>}
+                            Name: {team.team[0].team_name}</div></div>}
                      
                         {(team.teamMembers.length[3]) ? <div className='team-member'>
                             <img src={team.teamMembers[3].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[3].user_name}<button>Kick Member</button>
+                            Name: {team.teamMembers[3].user_name}
                         </div> : <div><div className='team-member'>
                             <img src={team.team[0].team_image} className='team-member-photo-container' />
-                            Name: {team.team[0].team_name}<button>Add Member</button></div></div>}
+                            Name: {team.team[0].team_name}</div></div>}
                      
                     </div>
                 </div>
@@ -57,7 +57,7 @@ function mapStateToProps(state) {
 export default connect(
     mapStateToProps,
     { getTeam, getTeamMembers }
-)(TeamMember);
+)(TeamMemberNonAdmin);
 
 
 
