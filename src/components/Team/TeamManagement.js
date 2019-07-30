@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getTeam } from '../../ducks/teamReducer';
 import { Link } from 'react-router-dom'
-import './TeamPage.css'
+import './TeamManagement.css'
 import { Redirect } from 'react-router-dom'
 import TeamMember from './TeamMember'
 class TeamManagement extends Component {
@@ -19,51 +19,46 @@ class TeamManagement extends Component {
         if (this.props.team.team[0]) {
             let { team } = this.props;
             return (
-                <div className='teampage'>
-                    <div className='teampage-container'>
-                        <div className='teampage-user-contents-container'>
-                            <div className='teampage-img-container'>
+                <div className='teamManagement'>
+                    <div className='teamManagement-container'>
+                        <div className='teamManagement-user-contents-container'>
+                            <div className='teamManagement-img-container'>
                                 <img src={team.team[0].team_image} className='dashboard-img' />
 
-                                <div className='teampage-user-info-bottom-container'>
-                                    <div className='teampage-icons'>
+                                <div className='teamManagement-user-info-bottom-container'>
+                                    <div className='teamManagement-icons'>
                                     </div>
-                                    <div className='teampage-user-bottom-info-after-icon-container'>
+                                    <div className='teamManagement-user-bottom-info-after-icon-container'>
                                     </div>
                                 </div>
                             </div>
-                            <div className='teampage-user-info-top-container'>
-                                <div className='teampage-db-info'>Memeber since: {team.team[0].team_creation_date}</div>
-                                <div className='teampage-db-info'>team:{team.team[0].team_name}</div>
+                            <div className='teamManagement-user-info-top-container'>
+                                <div className='teamManagement-db-info'>Memeber since: {team.team[0].team_creation_date}</div>
+                                <div className='teamManagement-db-info'>team:{team.team[0].team_name}</div>
                             </div>
                         </div>
-                        <div className='teampage-main-team-container'> Your teamSearch
-                    <div className='teampage-team-container'>
-                                <div className='teampage-team-info'>
-                                    {team.team[0].team_name}
+                        <div className='teamManagement-main-team-container'> {team.team[0].team_name}
+                    <div className='teamManagement-team-container'>
+                                <div className='teamManagement-team-info'>
+                                    <img src={team.team[0].team_image} className='team-photo-container' />
                                 </div>
-                                <div className='teampage-team-members'>
-                                    <div className='team-captain'>
-                                        Captain: {team.team[0].username}
-                                        <TeamMember/>
-                                    </div>
 
+                                        {(team.team.length) ? <TeamMember /> : null}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             )
-        }else {
-        return(<div>
+        } else {
+            return (<div>
 
-                                    <Link to='/TeamSignup'>
-                                        <div className='team-captain'>
-                                        </div>
-                                        <button>Create Team</button>
-                                    </Link>
-        </div>)
-    }
+                <Link to='/TeamSignup'>
+                    <div className='team-captain'>
+                    </div>
+                    <button>Create Team</button>
+                </Link>
+            </div>)
+        }
     }
 }
 function mapStateToProps(state) {

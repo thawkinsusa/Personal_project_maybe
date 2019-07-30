@@ -14,6 +14,7 @@ module.exports = {
         id: existingUser.id,
         user_email: existingUser.user_email,
         user_image: existingUser.user_image,
+        user_join_date: existingUser.user_join_date,
         loggedIn: true
       };
       res.send(req.session.user);
@@ -41,4 +42,15 @@ module.exports = {
   getUser(req, res) {
     res.send(req.session.user);
   },
+
+  getUsers: (req, res, next) => {
+    const dbInstance = req.app.get('db');
+
+    dbInstance.read_users()
+      .then(users => res.status(200).send(users))
+      .catch(err => {
+        res.status(500).send({ errorMessage: "get users is broken !@#$" });
+        console.log(err)
+      });
+  }
 }

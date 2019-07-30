@@ -38,8 +38,11 @@ app.use(initSession);
 app.post('/api/signup', uc.signup);
 app.post('/api/login', uc.login);
 app.get('/api/user', authCheck, uc.getUser);
+app.get('/api/users', uc.getUsers);
 app.delete('/api/logout', uc.logout);
 // team
 app.post('/api/teamSignup', tc.create);
 app.get('/api/teams/:id', tc.getTeam);
-app.delete('/api/teamDelete', tc.delete);
+app.delete('/api/deleteTeamMember/:id', tc.deleteTeamMember);
+app.get('/api/allTeams', tc.getAllTeams);
+app.get('/api/teamMembers/:id', tc.getTeamMembers);

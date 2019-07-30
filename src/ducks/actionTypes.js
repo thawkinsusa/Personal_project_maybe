@@ -1,6 +1,10 @@
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const GET_USER = 'GET_USER';
+export const GET_USERS = 'GET_USERS';
 export const LOGOUT = 'LOGOUT';
-export const TEAMSIGNUP = 'TEAMSIGNUP'
+export const TEAMSIGNUP = 'TEAMSIGNUP';
 export const GET_TEAM = 'GET_TEAM';
+export const GET_ALL_TEAMS = 'GET_ALL_TEAMS';
+export const GET_TEAM_MEMBERS = 'GET_TEAM_MEMBERS';
+export const DELETE_TEAM_MEMBER = 'DELETE_TEAM_MEMBER';

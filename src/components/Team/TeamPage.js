@@ -2,69 +2,81 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getTeam } from '../../ducks/teamReducer';
+import { getAllTeams } from '../../ducks/teamReducer';
+import { Link } from 'react-router-dom'
 import './TeamPage.css'
+import TeamMembersNonAdmin from'./TeamMembersNonAdmin'
+
 class TeamPage extends Component {
     componentDidMount() {
-        this.props.getTeam();
+        this.props.getTeam(this.props.user.user.id);
+
+
     }
+    getTeams = () => {
+        this.props.getAllTeams(res => { console.log('res', res) })
+    }
+
+    //  this.getTeams()
     render() {
         console.log('props teampage', this.props)
-        let { user, error, redirect, team } = this.props;
-        if (error || redirect) return <Redirect to="/login" />;
-        if (!user.loggedIn) return <div>Loading</div>;
-        return (
-            <div className='teampage'>
-                <div className='teampage-container'>
-                    <div className='teampage-user-contents-container'>
-                        <div className='teampage-img-container'>
-                        <img src={user.image} className='dashboard-img'/>
-                            <div className='teampage-img'>
-                            </div>
-                            <div className='teampage-user-info-bottom-container'>
-                                <div className='teampage-icons'>
+        if (!this.props.user.user.loggedIn) {
+            return <Redirect to='/login' />
+        }
+        if (this.props.team.team[0]) {
+            let { user, team, allTeams } = this.props
+            return (
+                <div className='teampage'>
+                    <div className='teampage-container'>
+                        <div className='teampage-user-contents-container'>
+                            <div className='teampage-img-container'>
+                                <img src={user.user.user_image} className='dashboard-img' />
+                                <div className='teampage-img'>
                                 </div>
-                                <div className='teampage-user-bottom-info-after-icon-container'>
+                                <div className='teampage-user-info-bottom-container'>
+                                    <div className='teampage-icons'>
+                                    </div>
+                                    <div className='teampage-user-bottom-info-after-icon-container'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='teampage-user-info-top-container'>
+
+                                <div className='teampage-db-info'>username: {user.user.user_name}</div>
+                                <div className='teampage-db-info'>Email: {user.user.user_email}</div>
+                                <div className='teampage-db-info'>Memeber since: {user.user.user_join_date}</div>
+                                <div className='teampage-db-info'>team:{team.team[0].team_name}</div>
+                            </div>
+                        </div>
+                <div className='teamManagement-main-team-container'> {team.team[0].team_name}
+                    <div className='teamManagement-team-container'>
+                                <div className='teamManagement-team-info'>
+                                    <img src={team.team[0].team_image} className='team-photo-container' />
+                                </div>
+                                        {(team.team.length) ? <TeamMembersNonAdmin /> : <button>You do not have a team</button>}
                                 </div>
                             </div>
                         </div>
-                        <div className='teampage-user-info-top-container'>
+                    </div>
+         
+            )
+        } else {
+            return (<div>
 
-                            <div className='teampage-db-info'>username: {user.username}</div>
-                            {/* <div className='teampage-db-info'>Email: {users[0].email}</div> */}
-                            <div className='teampage-db-info'>Memeber since: {}</div>
-                            <div className='teampage-db-info'>team: Lucifer</div>
-                        </div>
+                <Link to='/TeamSignup'>
+                    <div className='team-captain'>
                     </div>
-                    <div className='teampage-main-team-container'> Your teamSearch
-                    <div className='teampage-team-container'>
-                            <div className='teampage-team-info'>
-                                Team title
-                    </div>
-                            <div className='teampage-team-members'>
-                                team member needs to be component
-
-                            </div>
-                        </div>
-                    <div className='teampage-team-container'>
-                            <div className='teampage-team-info'>
-                                Team Search
-                    </div>
-                            <div className='teampage-team-members'>
-                                team member needs to be component
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
+                    <button>Create Team</button>
+                </Link>
+            </div>)
+        }
     }
 }
 function mapStateToProps(state) {
-    return { team: state.team, user: state.user };
+    return { team: state.team, user: state.user, allTeams: state.allTeams };
 }
 
 export default connect(
     mapStateToProps,
-    { getTeam }
+    { getTeam, getAllTeams }
 )(TeamPage);
