@@ -1,63 +1,44 @@
 import React, { Component } from 'react'
-import { getTeam, getTeamMembers } from '../../ducks/teamReducer';
+import { getTeam, getTeamMembers, deleteTeamMember } from '../../ducks/teamReducer';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import './TeamMember.css'
 
 class TeamMember extends Component {
     componentDidMount() {
         this.props.getTeamMembers(this.props.user.user.id)
     }
+    kick = (user_id) => {
+       
+        let teamId = this.props.teamId
+        this.props.deleteTeamMember(user_id, teamId)
+
+    }
 
     render() {
-        if (this.props.team.teamMembers[0]) {
-            let { team } = this.props
-            console.log('this is clg in teamMember', team)
-            return (
-                <div className='team-member-list'>
-                    <div className='team-member-container'>
-                    </div>
-                    <div className='team-member-list'>
+     
+        if(this.props.team.teamMembers.length)
+        {return (
+           <div>
+               {this.props.team.teamMembers.map(member => <div className='team-member' key={member.id}><img src={member.user_image} className='team-member-photo-container' />Username: {member.user_name}<button onClick={() => {this.kick(member.id)}}>Kick Member</button></div>)}
+    
+            </div> 
+        )}
+        else {
+            return <div>Loading</div>
+        }
+        }
+    }          
 
-                        <div className='team-member'>
-                            <img src={team.teamMembers[0].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[0].user_name}<button>Kick Member</button>
-                        </div>
-                        {(team.teamMembers.length[1]) ? <div className='team-member'>
-                            <img src={team.teamMembers[1].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[1].user_name}<button>Kick Member</button>
-                        </div> : <div><div className='team-member'>
-                            <img src={team.team[0].team_image} className='team-member-photo-container' />
-                            Name: {team.team[0].team_name}<button>Add Member</button></div></div>}
-                     
-                        {(team.teamMembers.length[2]) ? <div className='team-member'>
-                            <img src={team.teamMembers[2].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[2].user_name}<button>Kick Member</button>
-                        </div> : <div><div className='team-member'>
-                            <img src={team.team[0].team_image} className='team-member-photo-container' />
-                            Name: {team.team[0].team_name}<button>Add Member</button></div></div>}
-                     
-                        {(team.teamMembers.length[3]) ? <div className='team-member'>
-                            <img src={team.teamMembers[3].user_image} className='team-member-photo-container' />
-                            Name: {team.teamMembers[3].user_name}<button>Kick Member</button>
-                        </div> : <div><div className='team-member'>
-                            <img src={team.team[0].team_image} className='team-member-photo-container' />
-                            Name: {team.team[0].team_name}<button>Add Member</button></div></div>}
-                     
-                    </div>
-                </div>
-            )
-        } else { return <div> loading...</div> }
-    }
-}
 
 function mapStateToProps(state) {
-    return { team: state.team, user: state.user, teamMembers: state.teamMembers };
-}
+            return { team: state.team, user: state.user, teamMembers: state.teamMembers };
+        }
 
-export default connect(
-    mapStateToProps,
-    { getTeam, getTeamMembers }
-)(TeamMember);
+        export default connect(
+            mapStateToProps,
+            { getTeam, getTeamMembers, deleteTeamMember }
+        )(TeamMember);
 
 
 
