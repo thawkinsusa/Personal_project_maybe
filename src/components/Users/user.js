@@ -1,37 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from '../../ducks/userReducer';
+import { addTeamMember } from '../../ducks/teamReducer';
 import './user.css'
-class Users extends Component {
-    constructor() {
-        super()
-        this.state = {
-            users: [],
-            id: 0
-        }
-    }
-    componentDidMount() {
+class User extends Component {
 
-        this.props.getUsers()
-            .then(res => {
-                console.log('res', res);
-                this.setState({ users: res.value });
-            })
 
-    }
-
+    addUser = () => {
+        let  userId  = this.props.user.id;
+        let  teamId  = this.props.teamId;
+        this.props.addTeamMember(userId, teamId)
+        
+    };
 
     render() {
-        let { users } = this.state
-        console.log('this.state', this.state)
+
+
         return (
             <div className="users-container">
 
-<div className='user-list'>
+                <div className='user-list'>
 
                     <div className='user'>
-                        <p><img src={this.props.users.user_image} className='image-container'/> User Name: {this.props.users.user_name}<button> Add user to team</button></p>
-
+                        <p><img src={this.props.user.user_image} className='image-container' /> User Name: {this.props.user.user_name}<button onClick={this.addUser}> Add user to team </button></p>
                     </div>
                 </div>
 
@@ -40,11 +30,13 @@ class Users extends Component {
     }
 
 }
-function mapStateToProps(state) {
-    return { user: state.user };
-}
+
+
+
+
+
 
 export default connect(
-    mapStateToProps,
-    { getUsers }
-)(Users);
+    null,
+    { addTeamMember }
+)(User);

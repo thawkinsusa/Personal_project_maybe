@@ -16,9 +16,9 @@ export default (
     <Route path="/signup" component={Signup} />
     <Route path='/login' component={Login}/>
     <Route path='/teamPage' component={TeamPage}/>
-    <Route path='/teamManagement' component={TeamManagement}/>
+    <Route path= '/teamManagement' component={TeamManagement}/>
     <Route path='/teamSignup' component={TeamSignup}/>
-    <Route path='/usersList' component={TeamUsersLoad}/>
+    <Route path='/usersList/:teamId' component={TeamUsersLoad}/>
 
   </Switch>
 );

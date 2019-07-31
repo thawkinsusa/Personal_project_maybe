@@ -19,7 +19,6 @@ class TeamPage extends Component {
 
     //  this.getTeams()
     render() {
-        console.log('props teampage', this.props)
         if (!this.props.user.user.loggedIn) {
             return <Redirect to='/login' />
         }

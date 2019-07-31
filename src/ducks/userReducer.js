@@ -45,19 +45,17 @@ export const getUser = () => {
 export const getUsers = () => {
   let data = axios.get('/api/users').then(res => res.data);
   return {
-    type: GET_USER,
+    type: GET_USERS,
     payload: data
   };
 };
 
 
-
 export default function (state = initialState, action) {
-  console.log('action in userReducer ', action);
   let { type, payload } = action;
   switch (type) {
     case SIGNUP + '_FULFILLED':
-      console.log('paylaod', payload)
+
       return { user: payload, redirect: false, error: false };
     case SIGNUP + '_REJECTED':
       return { ...state, error: payload };

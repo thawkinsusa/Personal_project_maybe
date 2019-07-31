@@ -12,12 +12,14 @@ class TeamManagement extends Component {
 
     }
     render() {
+
         if (!this.props.user.user.loggedIn) {
             return <Redirect to='/login' />
         }
-        console.log('this props', this.props)
+
         if (this.props.team.team[0]) {
             let { team } = this.props;
+            console.log('team', team)
             return (
                 <div className='teamManagement'>
                     <div className='teamManagement-container'>
@@ -42,8 +44,8 @@ class TeamManagement extends Component {
                                 <div className='teamManagement-team-info'>
                                     <img src={team.team[0].team_image} className='team-photo-container' />
                                 </div>
-
-                                        {(team.team.length) ? <TeamMember /> : null}
+                                       <Link to={`/usersList/${team.team[0].id}`}> <div>Add Members to Your Team</div> </Link>
+                                        {(team.team.length) ? <TeamMember teamId={team.team[0].id} /> : null}
                                 </div>
                             </div>
                         </div>

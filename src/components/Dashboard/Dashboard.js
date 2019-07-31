@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser } from '../../ducks/userReducer';
+import { getTeam } from '../../ducks/teamReducer';
 import './Dashboard.css'
 class Dashboard extends Component {
     constructor(){
@@ -11,8 +12,11 @@ class Dashboard extends Component {
         }
     }
     componentDidMount() {
+        if(this.props.user.id) {
+        this.props.getTeam(this.props.user.id)}
         if (!this.props.user.loggedIn) {
             this.props.getUser();
+            setTimeout(() => this.props.getTeam(this.props.user.id), 1000)
         }
     }
     render() {
@@ -67,5 +71,5 @@ function mapStateToProps(state) {
 
 export default connect(
     mapStateToProps,
-    { getUser }
+    { getUser, getTeam }
 )(Dashboard);

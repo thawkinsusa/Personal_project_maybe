@@ -43,6 +43,7 @@ app.delete('/api/logout', uc.logout);
 // team
 app.post('/api/teamSignup', tc.create);
 app.get('/api/teams/:id', tc.getTeam);
-app.delete('/api/deleteTeamMember/:id', tc.deleteTeamMember);
+app.delete('/api/deleteTeamMember/:userId', tc.deleteTeamMember);
 app.get('/api/allTeams', tc.getAllTeams);
 app.get('/api/teamMembers/:id', tc.getTeamMembers);
+app.put('/api/addTeamMember', tc.addTeamMember)

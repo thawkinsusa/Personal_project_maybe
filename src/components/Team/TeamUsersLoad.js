@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import Users from '../Users/user'
+import User from '../Users/User'
 import './TeamUsersLoad.css'
 import { getUsers } from '../../ducks/userReducer';
 class TeamUsersLoad extends Component {
@@ -23,17 +23,16 @@ class TeamUsersLoad extends Component {
     }
 
     render() {
-        console.log('props search', this.state.users)
 
         let { users } = this.state
-        console.log('users', users)
+       
         return (
             <div className="dash-container">
 
 
-                <div>{this.state.users.map(users => {
+                <div>{users.map(user => {
                     return (<div>
-                        <Users users={users} key={'specialkey'} componentDidMount={this.componentDidMount} ></Users>
+                        <User user={user} key={user.id}  teamId={this.props.match.params.teamId}></User>
                     </div>)
                 })}
                 </div>

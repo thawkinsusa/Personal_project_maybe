@@ -22,6 +22,7 @@ class Nav extends Component {
     }
 
     render() {
+
         return (
             <div>
                 <div className='header'>
@@ -30,7 +31,8 @@ class Nav extends Component {
                     <Link to='/dashboard'><button className='nav-link'> Dashboard </button></Link>
                     <Link to='/signup'><button className='nav-link'> Register </button></Link>
                     <Link to='/TeamPage'><button className='nav-link'> Team Page </button></Link>
-                    <Link to='/TeamManagement'><button className='nav-link'>TeamManagement</button></Link>
+                    <Link to={`/TeamManagement/${this.props.state.team.team[0] ? this.props.state.team.team[0].id : 999999}`}><button className='nav-link'>TeamManagement</button></Link>
+                    
                     <Link to='/login'><button className='nav-link'> Login </button></Link>
                     </div>
                     <button className='menu-btn-content' onClick={this.toggleMenu}>
@@ -57,7 +59,7 @@ class Nav extends Component {
     }
 }
 function mapStateToProps(state) {
-    return state.user;
+    return { state };
 }
 
 export default withRouter(connect(
