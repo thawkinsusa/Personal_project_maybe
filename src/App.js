@@ -1,26 +1,29 @@
-    
+
 import React, { Component } from 'react';
 import './App.css';
 import routes from "./routes"
 import Nav from './components/Nav/Nav';
 // testing git
 class App extends Component {
-  constructor(){
+  constructor() {
     super()
-    this.sate ={
+    this.sate = {
 
     }
   }
-  
+
   render() {
     return (
       <div className="App">
         <div className='background-img'>
-       <Nav/>
-       {routes}
-       </div>
+          <Nav />
+          <div className='home-main content'>
+
+          </div>
+          {routes}
+        </div>
       </div>
-      
+
     );
   }
 }

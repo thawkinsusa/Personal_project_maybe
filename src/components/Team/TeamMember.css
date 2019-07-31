@@ -1,6 +1,6 @@
 
 .team-member-list{
-    color: white;
+    color: rgb(247, 247, 247);
     width: 800px;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
     justify-content: space-evenly;
     border-style: groove;
     border-width: .5px; 
-    background-color: rgb(27, 26, 26);
+    background-color: rgba(49, 46, 124, 0);
     height: 75px;
     
 }

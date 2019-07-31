@@ -5,7 +5,8 @@ import { getTeam } from '../../ducks/teamReducer';
 import { getAllTeams } from '../../ducks/teamReducer';
 import { Link } from 'react-router-dom'
 import './TeamPage.css'
-import TeamMembersNonAdmin from'./TeamMembersNonAdmin'
+import TeamMembersNonAdmin from './TeamMembersNonAdmin'
+import { whileStatement } from '@babel/types';
 
 class TeamPage extends Component {
     componentDidMount() {
@@ -33,31 +34,29 @@ class TeamPage extends Component {
                                 <div className='teampage-img'>
                                 </div>
                                 <div className='teampage-user-info-bottom-container'>
-                                    <div className='teampage-icons'>
-                                    </div>
                                     <div className='teampage-user-bottom-info-after-icon-container'>
+                                    <div className='teampage-user-info-top-container'>
+                                        <div className='teampage-db-info'>Username: {user.user.user_name}</div>
+                                        <div className='teampage-db-info'>Email: {user.user.user_email}</div>
+                                        <div className='teampage-db-info'>Memeber since: {user.user.user_join_date}</div>
+                                        <div className='teampage-db-info'>Team:{team.team[0].team_name}</div>
+                                        <div style={{color: 'red'}}className='teampage-db-info'>Captain Of<div style={{color: 'white'}}>{team.team[0].team_name}</div></div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className='teampage-user-info-top-container'>
-
-                                <div className='teampage-db-info'>username: {user.user.user_name}</div>
-                                <div className='teampage-db-info'>Email: {user.user.user_email}</div>
-                                <div className='teampage-db-info'>Memeber since: {user.user.user_join_date}</div>
-                                <div className='teampage-db-info'>team:{team.team[0].team_name}</div>
-                            </div>
                         </div>
-                <div className='teamManagement-main-team-container'> {team.team[0].team_name}
-                    <div className='teamManagement-team-container'>
+                        <div className='teamManagement-main-team-container'> {team.team[0].team_name}
+                            <div className='teamManagement-team-container'>
                                 <div className='teamManagement-team-info'>
                                     <img src={team.team[0].team_image} className='team-photo-container' />
                                 </div>
-                                        {(team.team.length) ? <TeamMembersNonAdmin /> : <button>You do not have a team</button>}
-                                </div>
+                                {(team.team.length) ? <TeamMembersNonAdmin /> : <button>You do not have a team</button>}
                             </div>
                         </div>
                     </div>
-         
+                </div>
+
             )
         } else {
             return (<div>

@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser } from '../../ducks/userReducer';
 import { getTeam } from '../../ducks/teamReducer';
 import './Dashboard.css'
 class Dashboard extends Component {
-    constructor(){
+    constructor() {
         super()
-        this.state= {
-            
+        this.state = {
+
         }
     }
     componentDidMount() {
-        if(this.props.user.id) {
-        this.props.getTeam(this.props.user.id)}
+        if (this.props.user.id) {
+            this.props.getTeam(this.props.user.id)
+        }
         if (!this.props.user.loggedIn) {
             this.props.getUser();
             setTimeout(() => this.props.getTeam(this.props.user.id), 1000)
@@ -36,10 +37,7 @@ class Dashboard extends Component {
                                 </div>
                                 <div className='dashboard-user-bottom-info-after-icon-container'>
                                     <p>{user.username}</p>
-                                    <p>sad</p>
-                                    <p>sad</p>
-                                    <p>sad</p>
-                                    <p>sad</p>
+
                                 </div>
                             </div>
                         </div>
@@ -51,7 +49,9 @@ class Dashboard extends Component {
                         </div>
                     </div>
                     <div className='dashboard-menu-options'>
-                    <button className='dashboard-links'> My Teams</button>
+                        <Link to='/teamPage'>
+                            <button className='dashboard-links'> My Teams</button>
+                        </Link>
                         <button className='dashboard-links'> My Messages </button>
                         <button className='dashboard-links'> Team Management </button>
                         <button className='dashboard-links'> Team Search </button>
