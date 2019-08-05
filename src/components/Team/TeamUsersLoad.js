@@ -25,14 +25,14 @@ class TeamUsersLoad extends Component {
     render() {
 
         let { users } = this.state
-       
+
         return (
             <div className="dash-container">
 
 
                 <div>{users.map(user => {
                     return (<div>
-                        <User user={user} key={user.id}  teamId={this.props.match.params.teamId}></User>
+                        <User user={user} key={user.id} teamId={this.props.match.params.teamId}></User>
                     </div>)
                 })}
                 </div>

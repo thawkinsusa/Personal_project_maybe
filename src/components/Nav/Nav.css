@@ -22,6 +22,7 @@
 
 .menu-btn-content:hover {
     background-color: rgb(13, 95, 128);
+
 }
 
 .logo {
@@ -37,8 +38,8 @@
 }
 
 .nav-menu {
-    right: 250px;
-    top: 65px;
+    right: 70px;
+    top: 190px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -51,6 +52,14 @@
 
 }
 
+.fa.fa-bars {
+    margin-right: 60px;
+    margin-top: 50px;
+    height: 70px;
+    width: 70px;
+    backgou-size: fill;
+}
+
 .nav-link {
     height: 80px;
     width: 150px;
@@ -61,15 +70,92 @@
 
 }
 
+.nav-link-menu:hover {
+    background-color: rgb(13, 95, 128);
+}
+
+.nav-link-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 40px;
+    width: 150px;
+    border-radius: 4px;
+    background-color: rgb(29, 27, 27);
+    color: white;
+    border-style: none;
+}
+
 .nav-link:hover {
     background-color: rgb(13, 95, 128);
 }
 
+.nav-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+    margin-left: 0px;
+}
+
 .menu-options {
+    margin-right: 500px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     background-color: rgb(29, 27, 27);
     border-radius: 20px;
-    width: 50vw;
+}
+
+@media screen and (max-width: 768px) {
+
+
+    .fa.fa-bars {
+        margin-right: 60px;
+        margin-top: 30px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .menu-btn-content {
+        display: contents;
+        width: 30px;
+        height: 30px;
+    }
+
+    .nav-link {
+        margin-top: 10px;
+        display: contents;
+    }
+
+    .menu-options {
+        margin-top: 10px;
+        display: none;
+    }
+
+    .logo {
+        font-size: 20pt;
+        height: 4vh;
+        width: 14vh;
+        margin-left: 60px;
+        margin-top: 15px;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .menu-btn-content {
+        display: none;
+    }
+
+
+    .nav-link-menu {
+        margin-right: 300px;
+        display: none;
+    }
+
+
 }

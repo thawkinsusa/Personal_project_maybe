@@ -4,10 +4,13 @@ const massive = require('massive');
 const session = require('express-session');
 const uc = require('./controllers/userController');
 const tc = require('./controllers/teamController');
+const sc = require('./controllers/stripeController');
 const initSession = require('./middleware/initSession');
+const path = require('path');
 const authCheck = require('./middleware/authCheck');
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
-console.log('conneciton string', CONNECTION_STRING);
+
+
 
 const app = express();
 console.log('hit express');
@@ -31,7 +34,6 @@ massive(CONNECTION_STRING).then(db => {
 
   app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
 })
-
 app.use(initSession);
 
 // users
@@ -47,3 +49,13 @@ app.delete('/api/deleteTeamMember/:userId', tc.deleteTeamMember);
 app.get('/api/allTeams', tc.getAllTeams);
 app.get('/api/teamMembers/:id', tc.getTeamMembers);
 app.put('/api/addTeamMember', tc.addTeamMember)
+//stripe
+app.post('/api/payment', sc.pay)
+
+
+
+app.use(express.static(__dirname + '/../build'));
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '../build/index.html')));
+
+
