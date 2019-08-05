@@ -1,3 +1,4 @@
+
 .dashboard {
     display: flex;
     flex-direction: column;
@@ -6,9 +7,10 @@
 }
 
 .dashboard-container {
+    margin-top: 30px;
     width: 1400px;
     height: 800px;
-    background-color: rgba(19, 18, 18, 0.575);
+    background-color: rgba(19, 18, 18, 0.795);
     display: flex;
     border-radius: 4px;
     border-style: groove;
@@ -21,10 +23,11 @@
     height: 800px;
     background-color: rgba(49, 46, 124, 0);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .dashboard-menu-options {
+    font-size: 15pt;
     margin-top: 200px;
     margin-right: 20px;
     width: 1300px;
@@ -49,34 +52,26 @@
 
 .dashboard-img-container {
     margin: 20px 10px 20px 20px;
+    display: flex;
     padding-top: 20px;
-    width: 150px;
+    width: 426px;
     height: 145px;
-    background-color: rgba(255, 255, 0, 0);
+    background-color: rgba(0, 0, 0, 0.664);
     border-radius: 4px;
     border-style: groove;
     border-width: 1px;
 }
 
 .dashboard-user-info-top-container {
-    margin-top: 10px;
+    font-size: 13pt;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    font-size: 13pt;
-    align-content: space-evenly;
-    justify-content: space-evenly;
-    width: 230px;
-    height: 178px;
-    background-color: rgba(128, 0, 128, 0);
-    border-radius: 4px;
-    border-style: groove;
-    border-width: .5px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
-.dashboard-db-info {
-    margin: 10px;
-}
+
 
 .dashboard-user-info-bottom-container {
     position: absolute;
@@ -87,14 +82,18 @@
 }
 
 .dashboard-icons {
-    background-image: url('https://i.gyazo.com/ac646f8558b808357d9c1b891949e898.png');
     height: 30px;
     width: 30px;
     border-radius: 100px;
-    background-color: #cccccc;
-    background-repeat: no-repeat;
     background-size: cover;
 
+}
+.dashboard-db-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 10px;
+    margin-top: 0px;
 }
 
 .dashboard-user-bottom-info-after-icon-container {
@@ -104,7 +103,9 @@
 }
 .dashboard-links{
     border-radius: 4px;
-    width: 25vw;
+    width: 425px;
+    margin-left: 20px;
+    margin-top: 35px;
     height: 10vh;
     display: flex;
     flex-direction: column;
@@ -114,4 +115,46 @@
     font-size: 16pt;
     background-color: rgba(34, 29, 78, 0.363);
     color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-container{
+        width: 475px;
+        margin-top: 100px;
+    }
+.dashboard-menu-options{
+    display: none;
+}
+}
+
+@media screen and (max-width: 375px) {
+    .dashboard-container{
+        width: 350px;
+        margin-top: 100px;
+    }
+.dashboard-menu-options{
+    display: none;
+}
+.dashboard-img-container {
+    width: 310px;
+}
+.dashboard-links{
+    width: 310px;
+    background-color: rgba(26, 26, 194, 0.781);
+}
+.dashboard-user-info-bottom-container{
+    width: 310px;
+    height: 400px;
+}
+
+.dashboard-user-contents-container{
+    width: 350px;
+    height:400px;
+
+}
+.dashboard-container{
+    margin-top: 70px;
+    height: 670px;
+    background-color: rgba(0, 0, 0, 0.856);
+}
 }

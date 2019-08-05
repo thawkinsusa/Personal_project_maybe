@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 0px;
-    background-color: rgba(4, 4, 7, 0.055);
+    background-color: rgb(4, 4, 7);
     width: 100vw;
     height: 8.5vh;
 }
@@ -27,14 +27,14 @@
 
 .logo {
     text-align: center;
-    margin-left: 120px;
-    margin-top: 15px;
+    margin-left: 30px;
+    margin-top: 8px;
     font-size: 32pt;
     height: 7vh;
-    width: 20vh;
+    width: 50vh;
     border-radius: 20px;
     color: rgb(255, 255, 255);
-    background-color: rgba(22, 20, 20, 0.438);
+    background-color: rgb(68, 0, 255);
 }
 
 .nav-menu {
@@ -57,14 +57,15 @@
     margin-top: 50px;
     height: 70px;
     width: 70px;
-    backgou-size: fill;
+    background-size: fill;
 }
 
 .nav-link {
+    text-decoration: none;
     height: 80px;
-    width: 150px;
+    width: 300px;
     border-radius: 4px;
-    background-color: rgb(29, 27, 27);
+    background-color: rgb(12, 11, 11);
     color: white;
     border-style: none;
 
@@ -75,6 +76,7 @@
 }
 
 .nav-link-menu {
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +85,7 @@
     height: 40px;
     width: 150px;
     border-radius: 4px;
-    background-color: rgb(29, 27, 27);
+    background-color: rgba(0, 0, 0, 0.938);
     color: white;
     border-style: none;
 }
@@ -102,7 +104,7 @@
 }
 
 .menu-options {
-    margin-right: 500px;
+    margin-right: 100px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -114,7 +116,7 @@
 
 
     .fa.fa-bars {
-        margin-right: 60px;
+        margin-right:30px;
         margin-top: 30px;
         height: 50px;
         width: 50px;
@@ -124,6 +126,7 @@
         display: contents;
         width: 30px;
         height: 30px;
+        color: rgb(255, 255, 255);
     }
 
     .nav-link {
@@ -134,6 +137,7 @@
     .menu-options {
         margin-top: 10px;
         display: none;
+        
     }
 
     .logo {
@@ -142,11 +146,20 @@
         width: 14vh;
         margin-left: 60px;
         margin-top: 15px;
+        background-color: rgb(68, 0, 255);
     }
+    .header{
+        position: absolute;
+        height: 7vh;
+        background-color: rgb(14, 8, 8);
+        }
+        .nav-menu{
+            right: 30px;
+        }
 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     .menu-btn-content {
         display: none;
     }
@@ -157,5 +170,52 @@
         display: none;
     }
 
+
+}
+
+@media screen and (max-width: 375px) {
+
+
+    .fa.fa-bars {
+        margin-right: 53px;
+        margin-top: 16px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .menu-btn-content {
+        display: contents;
+        width: 30px;
+        height: 30px;
+        
+    }
+
+  
+    .nav-menu{
+        right: 48px;
+    }
+
+    .menu-options {
+        margin-top: 10px;
+        left: 20px;
+        display: none;
+    }
+    .nav-link-menu{
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.815);
+    }
+
+    .logo {
+        font-size: 16pt;
+        height: 4vh;
+        width: 13vh;
+        margin-left: 20px;
+        margin-top:10px;
+        background-color: rgb(68, 0, 255);
+    }
+    .header{
+    position: absolute;
+    background-color: rgb(14, 8, 8);
+    }
 
 }

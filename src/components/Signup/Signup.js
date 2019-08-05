@@ -72,7 +72,7 @@ class Signup extends Component {
                                 onChange={this.handleChange}></input>
                         </div>
                     </div>
-                    <button onClick={this.signupUser}>Register</button>
+                    <button className='sign-button' onClick={this.signupUser}>Register</button>
                 </div>
             </div>
         )

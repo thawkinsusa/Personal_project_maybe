@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getUser } from '../../ducks/userReducer';
 import { getTeam } from '../../ducks/teamReducer';
 import './Dashboard.css'
+import TeamMember from '../Team/TeamMembersNonAdmin'
 class Dashboard extends Component {
     constructor() {
         super()
@@ -32,33 +33,28 @@ class Dashboard extends Component {
                         <div className='dashboard-img-container'>
                             <img src={user.user_image} className='dashboard-img'>
                             </img>
+                            <div className='dashboard-db-info-container'>
+                            <div className='dashboard-db-info'>username: {user.user_name}</div>
+                            <div className='dashboard-db-info'>Email: {user.user_email}</div>
+                            <div className='dashboard-db-info'>Memeber since: {user.user_join_date}</div>
+                            </div>
+                        <div className='dashboard-user-info-top-container'>
+                        </div>
                             <div className='dashboard-user-info-bottom-container'>
-                                <div className='dashboard-icons'>
-                                </div>
                                 <div className='dashboard-user-bottom-info-after-icon-container'>
                                     <p>{user.username}</p>
 
                                 </div>
                             </div>
                         </div>
-                        <div className='dashboard-user-info-top-container'>
-
-                            <div className='dashboard-db-info'>username: {user.user_name}</div>
-                            <div className='dashboard-db-info'>Email: {user.user_email}</div>
-                            <div className='dashboard-db-info'>Memeber since: {user.user_join_date}</div>
-                        </div>
-                    </div>
-                    <div className='dashboard-menu-options'>
-                        <Link to='/teamPage'>
-                            <button className='dashboard-links'> My Teams</button>
-                        </Link>
+                        <Link to='/teamPage'><button className='dashboard-links'> My Teams</button></Link>
                         <button className='dashboard-links'> My Messages </button>
                         <button className='dashboard-links'> Team Management </button>
                         <button className='dashboard-links'> Team Search </button>
-                        <button className='dashboard-links'> Home </button>
-                        <button className='dashboard-links'> Home </button>
-                        <button className='dashboard-links'> Home </button>
-                        <button className='dashboard-links'> Home </button>
+                    </div>
+                    <div className='dashboard-menu-options'>
+                        Your Heroes
+                        <TeamMember/>
                     </div>
                 </div>
             </div>
