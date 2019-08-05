@@ -1,6 +1,6 @@
 
 .background-img{
-  background-image: url('https://cdn.vox-cdn.com/thumbor/HpJNrBvSv5HEiRS09PTTM9pbIBk=/0x0:3840x2160/1200x800/filters:focal(1613x773:2227x1387)/cdn.vox-cdn.com/uploads/chorus_image/image/63921716/MW_Reveal_06_wm.0.png');
+  background-image: url('https://fangirlsarewe.files.wordpress.com/2015/12/supersmashbros.png');
   margin: 0px;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -9,6 +9,13 @@
 @media screen and (max-width: 768px) {
 
   .background-img{
-    background-size: 763px 1027px;
+    background-size: 768px 1024px ;
+  }
+}
+@media screen and (max-width: 375px) {
+
+  .background-img{
+    background-size: 375px 812px;
+    background-image: url('https://preview.redd.it/d7qhftimw9i11.png?width=640&crop=smart&auto=webp&s=1aa743eaadcc93caf6de5103f2324b54eec2a811')
   }
 }

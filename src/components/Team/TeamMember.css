@@ -15,11 +15,11 @@
     color: rgb(255, 255, 255);
     width: 800px;
     display: flex;
-    flex-direction: row;
-    align-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
     border-style: groove;
     border-width: .5px; 
     background-color: rgba(49, 46, 124, 0);
@@ -27,3 +27,35 @@
     
 }
 
+
+
+@media screen and (max-width: 768px) {
+.team-member{
+    width: 350px;
+    margin-left: 0px;
+}
+.team-member-container{
+    left:30px;
+    width: 300px;
+
+}
+.team-member-list{
+    color: rgb(247, 247, 247);
+    width: 300px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-style: groove;
+    border-width: .5px;  
+ }
+}
+
+@media screen and (max-width: 375px) {
+    .team-member{
+        width: 300px;
+        margin-right: 30px;
+    }
+}

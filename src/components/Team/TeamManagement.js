@@ -26,11 +26,15 @@ class TeamManagement extends Component {
                         <div className='teamManagement-user-contents-container'>
                             <div className='teamManagement-img-container'>
                                 <img src={team.team[0].team_image} className='dashboard-img' />
-
-                                <div className='teamManagement-user-info-bottom-container'>
-                                    <div className='teamManagement-icons'>
-                                    </div>
-                                    <div className='teamManagement-user-bottom-info-after-icon-container'>
+                                <div className='teamManagement-user-bottom-info-after-icon-container'>
+                                    <div className='teamManagement-main-team-container'> {team.team[0].team_name}
+                                        <div className='teamManagement-team-container'>
+                                            <div className='teamManagement-team-info'>
+                                                <img src={team.team[0].team_image} className='team-photo-container' />
+                                            </div>
+                                            <Link to={`/usersList/${team.team[0].id}`}> <div>Add Members to Your Team</div> </Link>
+                                            {(team.team.length) ? <TeamMember teamId={team.team[0].id} /> : null}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -39,17 +43,8 @@ class TeamManagement extends Component {
                                 <div className='teamManagement-db-info'>team:{team.team[0].team_name}</div>
                             </div>
                         </div>
-                        <div className='teamManagement-main-team-container'> {team.team[0].team_name}
-                    <div className='teamManagement-team-container'>
-                                <div className='teamManagement-team-info'>
-                                    <img src={team.team[0].team_image} className='team-photo-container' />
-                                </div>
-                                       <Link to={`/usersList/${team.team[0].id}`}> <div>Add Members to Your Team</div> </Link>
-                                        {(team.team.length) ? <TeamMember teamId={team.team[0].id} /> : null}
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                </div>
             )
         } else {
             return (<div>

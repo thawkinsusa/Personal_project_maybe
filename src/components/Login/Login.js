@@ -45,7 +45,7 @@ class Login extends Component {
                                 onChange={this.handleChange}></input>
                         </div>
                     </div>
-                    <button onClick={this.loginUser}>Login</button>
+                    <button className='login-button' onClick={this.loginUser}>Login</button>
                 </div>
             </div>
         );

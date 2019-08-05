@@ -13,7 +13,7 @@ class TeamMemberNonAdmin extends Component {
         if(this.props.team.teamMembers.length)
         {return (
            <div>
-               {this.props.team.teamMembers.map(member => <div className='team-member' key={member.id}><img src={member.user_image} className='team-member-photo-container' />Username: {member.user_name}</div>)}
+               {this.props.team.teamMembers.map(member => <div className='team-member' key={member.id}><div className='member-img-container'><img src={member.user_image} className='team-member-photo-container' /></div> <div classname='member-db-info'> Username: {member.user_name}</div></div>)}
     
             </div> 
         )}
