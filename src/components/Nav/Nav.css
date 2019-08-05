@@ -38,8 +38,8 @@
 }
 
 .nav-menu {
-    right: 60px;
-    top: 210px;
+    right: 70px;
+    top: 190px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -115,7 +115,7 @@
 
     .fa.fa-bars {
         margin-right: 60px;
-        margin-top: 50px;
+        margin-top: 30px;
         height: 50px;
         width: 50px;
     }
@@ -138,8 +138,10 @@
 
     .logo {
         font-size: 20pt;
-        height: 5vh;
-        width: 10vh;
+        height: 4vh;
+        width: 14vh;
+        margin-left: 60px;
+        margin-top: 15px;
     }
 
 }
@@ -155,7 +157,5 @@
         display: none;
     }
 
-    .background-img {
-        height: 1000px;
-    }
+
 }

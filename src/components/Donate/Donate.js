@@ -31,27 +31,25 @@ class Donate extends Component {
   }
 
   render() {
-    // console.log(typeof this.state.amount)
 
     return (
       <div style={{display:'flex',flexDirection:'column', alignItems:'center', marginTop:'50px'}}>
         <StripeCheckout
-          name='CLass' //header
+          name='CLass' 
           image={imageUrl}
-          description='This is stuff going beneath the header' //subtitle - beneath header
-          stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY} //public key not secret key
-          token={this.onToken} //fires the call back
-          amount={this.state.amount} //this will be in cents
+          description='This is stuff going beneath the header' 
+          stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY} 
+          token={this.onToken} 
+          amount={this.state.amount} 
           currency="USD" 
-          // image={imageUrl} // the pop-in header image (default none)
-          // ComponentClass="div" //initial default button styling on block scope (defaults to span)
-          panelLabel="Submit Payment" //text on the submit button
-          locale="en" //locale or language (e.g. en=english, fr=french, zh=chinese)
-          opened={this.onOpened} //fires cb when stripe is opened
-          closed={this.onClosed} //fires cb when stripe is closed
-          allowRememberMe // "Remember Me" option (default true)
+ 
+          panelLabel="Submit Payment" 
+          locale="en"
+          opened={this.onOpened} 
+          closed={this.onClosed} 
+          allowRememberMe 
           billingAddress={false}
-          // shippingAddress //you can collect their address
+        
           zipCode={false}
         >
           {/* <button>Checkout</button> */}
